@@ -1,5 +1,5 @@
 const userRouter = require("express").Router();
-const { registerUser } = require("../controllers");
+const { registerUser, loginUser } = require("../controllers");
 const { check } = require("express-validator");
 
 userRouter.post(
@@ -13,5 +13,7 @@ userRouter.post(
   ],
   registerUser
 );
+
+userRouter.post("/login", loginUser);
 
 module.exports = userRouter;
