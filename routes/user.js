@@ -3,7 +3,7 @@ const { registerUser, loginUser } = require("../controllers");
 const { check } = require("express-validator");
 
 userRouter.post(
-  "/registration",
+  "/auth/registration",
   [
     check("email", "Incorrect email").isEmail(),
     check(
@@ -14,6 +14,6 @@ userRouter.post(
   registerUser
 );
 
-userRouter.post("/login", loginUser);
+userRouter.post("/auth/login", loginUser);
 
 module.exports = userRouter;

@@ -3,6 +3,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const config = require("config");
 const { userRouter } = require("./routes");
+const cors = require("./middleware/cors.middleware");
 
 // ====== INNER IMPORTS ======
 
@@ -10,6 +11,7 @@ const { userRouter } = require("./routes");
 
 const app = express();
 app.use(express.json());
+app.use(cors);
 
 const SERVER_PORT = config.get("server.port");
 const DB_URL = `${config.get("db.host")}:${config.get("db.port")}/${config.get(
